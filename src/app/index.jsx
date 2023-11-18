@@ -17,13 +17,13 @@ function App() {
 				<div className={styles.content} pos="right">{content}</div>
 				<div className={styles.content} pos="bottom">
 					<Tabs tabs={[
-						{id: "tab1", name: "Tab1"},
-						{id: "tab2", name: "Tab2"},
-						{id: "tab3", name: "Tab3"}
+						{id: "tab1", name: "Tab 1"},
+						{id: "tab2", name: "Tab 2"},
+						{id: "tab3", name: "Tab 3"}
 					]}>
-						<div tabid="tab1">Tab1</div>
-						<div tabid="tab2" default>Tab2</div>
-						<div tabid="tab3">Tab3</div>
+						<div tabid="tab1">Tab 1 content.</div>
+						<div tabid="tab2" default>Tab 2 content, set as default.</div>
+						<div tabid="tab3">Tab 3 content.</div>
 					</Tabs>
 				</div>
 			</Container>

@@ -20,7 +20,8 @@ const Container = ({children}) => {
         setY(Math.min(Math.max(parent.innerHeight - e.y, 250), 700));
     }
 
-    const handleResize = (setter) => {
+    const handleResize = (e, setter) => {
+        e.preventDefault();
         const mouseup = () => {
             window.removeEventListener('mousemove', setter);
             window.removeEventListener('mouseup', mouseup);
@@ -34,14 +35,14 @@ const Container = ({children}) => {
             <aside className={styles.left}>
                 {children.filter(child => child.props.pos === "left")}
             </aside>
-            <div className={styles.leftAnchor} onMouseDown={() => handleResize(handleX)} />
+            <div className={styles.leftAnchor} onMouseDown={(e) => handleResize(e, handleX)} />
             <main className={styles.right}>
                 {children.filter(child => child.props.pos === "right")}
             </main>
+            <div className={styles.bottomAnchor} onMouseDown={(e) => handleResize(e, handleY)} />
             <aside className={styles.bottom}>
                 {children.filter(child => child.props.pos === "bottom")}
             </aside>
-            <div className={styles.bottomAnchor} onMouseDown={() => handleResize(handleY)} />
         </div>
     )
 }

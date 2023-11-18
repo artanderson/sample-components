@@ -7,3 +7,31 @@
     display: flex;
     gap: 10px;
 }
+.treeView a {
+    cursor: pointer;
+}
+.treeView a:hover, 
+.treeView summary:hover {
+    color: cornflowerblue;
+}
+.treeView summary::-webkit-details-marker {
+  display: none;
+}
+.treeView summary {
+    cursor: pointer;
+    display: flex;
+    gap: 10px;
+}
+.treeView summary::before {
+  width: 10px;
+  background-color: #fff;
+}
+.treeView details[open] > summary {
+  margin-bottom: 5px;
+}
+.treeView details[open] > summary::before {
+  content: attr(data-open);
+}
+.treeView details:not([open]) > summary::before {
+    content: attr(data-closed);
+}

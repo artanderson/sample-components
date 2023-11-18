@@ -1,0 +1,25 @@
+.nodeElem {
+    margin-left: 16px;
+}
+.treeBar > .nodeDetails {
+    margin-left: -4px;
+}
+.active {
+    color: cornflowerblue;
+}
+.treeBar {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+}
+.treeBar::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    height: calc(100% - 12px);
+    border-left: 1px solid lightgray;
+    z-index: -1;
+}

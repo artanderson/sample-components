@@ -22,13 +22,13 @@ const TreeNode = (props) => {
         return (
             node.children ?
             <details className={styles.nodeDetails} key={idx}>
-                <summary data-open="-" data-closed="+" className={clsx(newActive && "active")}><span {...(node.content ? onclick : {})}>{node.name}</span></summary>
-                <div className="treeBar">
+                <summary data-open="-" data-closed="+" className={clsx(newActive && styles.active)}><span {...(node.content ? onclick : {})}>{node.name}</span></summary>
+                <div className={styles.treeBar}>
                     <TreeNode {...props}  nodes={node.children} depth={depth + 1} path={newPath} active={newActive} />
                 </div>
             </details>
             :
-            <a key={idx} className={clsx(newActive && "active", styles.nodeElem)} {...onclick}>{node.name}</a>
+            <a key={idx} className={clsx(newActive && styles.active, styles.nodeElem)} {...onclick}>{node.name}</a>
         )
     }))
 }
