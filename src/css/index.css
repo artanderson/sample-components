@@ -1,0 +1,70 @@
+:root {
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
+	color: #242424;
+	background-color: #fff;
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body, html, #root {
+  	height: 100%;
+}
+body {
+	margin: 0;
+	min-width: 320px;
+	min-height: 100vh;
+}
+hr {
+	border: none;
+	width: 100%;
+	height: 1px;
+	background-color: lightgray;
+}
+#treeView a {
+  	cursor: pointer;
+}
+#treeView a.active, 
+#treeView summary.active, 
+#treeView a:hover, 
+#treeView summary:hover {
+  	color: cornflowerblue;
+}
+#treeView summary {
+  	cursor: pointer;
+  	display: flex;
+  	gap: 10px;
+}
+#treeView summary::before {
+	width: 10px;
+	background-color: #fff;
+}
+#treeView details[open] > summary {
+	margin-bottom: 5px;
+}
+#treeView details[open] > summary::before {
+	content: attr(data-open);
+}
+#treeView details:not([open]) > summary::before {
+  	content: attr(data-closed);
+}
+.treeBar {
+	margin-left: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	position: relative;
+}
+.treeBar::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 5px;
+	height: calc(100% - 10px);
+	border-left: 1px solid lightgray;
+	z-index: -1;
+}

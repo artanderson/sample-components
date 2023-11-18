@@ -1,0 +1,9 @@
+.treeView {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.expand {
+    display: flex;
+    gap: 10px;
+}
