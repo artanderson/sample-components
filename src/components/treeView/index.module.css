@@ -2,35 +2,47 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
+    height: 100%;
 }
 .expand {
     display: flex;
     gap: 10px;
+}
+.expand > span {
+    -webkit-user-select: none;
+    user-select: none;
 }
 .treeView a {
     cursor: pointer;
 }
 .treeView a:hover, 
 .treeView summary:hover {
-    color: cornflowerblue;
+    color: var(--primary-color-highlight);
 }
 .treeView summary::-webkit-details-marker {
-  display: none;
+    display: none;
 }
 .treeView summary {
     cursor: pointer;
     display: flex;
     gap: 10px;
+    width: 100%;
 }
 .treeView summary::before {
-  width: 10px;
-  background-color: #fff;
+    width: 10px;
+    line-height: 1;
+    background-color: var(--primary-background-color);
+    align-self: center;
+    padding-bottom: 3px;
+    z-index: 0;
+    -webkit-user-select: none;
+    user-select: none;
 }
 .treeView details[open] > summary {
-  margin-bottom: 5px;
+    margin-bottom: 5px;
 }
 .treeView details[open] > summary::before {
-  content: attr(data-open);
+    content: attr(data-open);
 }
 .treeView details:not([open]) > summary::before {
     content: attr(data-closed);

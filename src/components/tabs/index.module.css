@@ -14,12 +14,16 @@
     border-top-left-radius: 5px;
     border-bottom: 3px solid transparent;
     cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    font-weight: 500;
 }
 .tab:hover {
-    background-color: rgba(0, 0, 0, .2);
+    background-color: var(--primary-hover-background-color);
 }
 .active {
-    border-bottom-color: cornflowerblue;
+    color: var(--primary-color-highlight);
+    border-bottom-color: var(--primary-color-highlight);
 }
 .tabPanel {
     padding: 10px;

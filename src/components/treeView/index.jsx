@@ -23,21 +23,19 @@ const TreeView = ({tree , setContent}) => {
     }
 
     useEffect(() => {
-        if(!details.current) {
-            details.current = document.querySelectorAll('details');
-            details.current.forEach(detail => {
-                detail.addEventListener("toggle", checkToggle);
-            })
-        }
-    }, []);
+        details.current = document.querySelectorAll('details');
+        details.current.forEach(detail => {
+            detail.addEventListener("toggle", checkToggle);
+        })
+    }, [tree]);
 
-    let sign = expanded ? "-" : "+";
+    let sign = expanded ? "\u2212" : "\u002B";
     let text = expanded ? "Collapse" : "Expand";
 
     return (
         <div className={styles.treeView}>
             <a onClick={hanldeToggle} className={styles.expand}>
-                <><span>{sign}</span><span>{text} all</span></>
+                <span>{sign}</span><span>{text} all</span>
             </a>
             <hr />
             <TreeNode nodes={tree} activePath={activePath} setActivePath={setActivePath} setContent={setContent} />
