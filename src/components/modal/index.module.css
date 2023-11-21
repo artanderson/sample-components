@@ -1,0 +1,36 @@
+.modalContainer, .modalBackground {
+	position: fixed; 
+	top: 0; 
+	width: 100%; 
+	height: 100%;
+}
+.modalContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.modalBackground {
+	background-color: var(--primary-hover-background-color);
+	opacity: 0;
+    transition: .3s ease-in;
+}
+.modalBackgroundOpen {
+	opacity: 1;
+}
+.modalMain {
+	min-width: 300px;
+	min-height: 300px;
+	border-radius: 10px;
+	padding: 20px;
+	background-color: var(--primary-background-color);
+	opacity: 0;
+    transform: scale(0);
+    transition: opacity .1s ease-out, transform .3s ease-out;
+	z-index: 1;
+}
+.modalMainOpen {
+	opacity: 1;
+    transform: scale(1);
+    transition: .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition-delay: .1s;
+}

@@ -5,21 +5,21 @@ import TreeView from '../components/treeView';
 import { tree } from '../tree';
 import Tabs from '../components/tabs';
 import { useModal } from '../hooks/useModal';
+import Modal from '../components/modal';
 
 function App() {
 	const [content, setContent] = useState("");
-	const Modal = useModal();
-	const OtherModal = useModal();
+	const { props, ref, open, close } = useModal();
 
   	return (
       	<div className={styles.app}>
 			<Container>
 				<div className={styles.content}  pos="left">
 					<TreeView tree={tree} setContent={setContent}/>
-					<button onClick={Modal.open}>Click</button>
-					<Modal.Modal>This is a test</Modal.Modal>
-					<button onClick={OtherModal.open}>Other Click</button>
-					<OtherModal.Modal>Other Modal test<button onClick={OtherModal.close}>Close</button></OtherModal.Modal>
+					<button onClick={open}>Click</button>
+					<Modal {...props} ref={ref}>
+						This is a test
+					</Modal>
 				</div>
 				<div className={styles.content} pos="right">{content}</div>
 				<div className={styles.content} pos="bottom">
