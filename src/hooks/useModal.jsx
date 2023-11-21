@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { useShow } from "./useShow";
 
 /**
@@ -8,16 +8,16 @@ import { useShow } from "./useShow";
  * @see useShow
  * 
  * @param {boolean} [danger] - optional param to turn off event handlers.
- * @returns {{props: {open, show}, ref: showRef, open: openModal, close: closeModal}} a modal Component in a portal and functions to control its open state.
+ * @returns {{props: {open, show, closeModal}, ref: showRef, open: openModal, close: closeModal}} a modal Component in a portal and functions to control its open state.
  */
 
 export const useModal = (danger = false) => {
-    const portalRef = useRef(document.createElement("div"));
     const [open, setOpen] = useState(false);
     
     const callback = () => {
         setTimeout(() => setOpen(false), 300)
     };
+    
     const [ showRef, show, setShow ] = useShow(danger, callback);
 
     const openModal = () => {
@@ -29,13 +29,5 @@ export const useModal = (danger = false) => {
         setTimeout(() => setOpen(false), 300);
     }
 
-    useEffect(() => {
-        portalRef.current.classList.add("portal");
-        document.body.appendChild(portalRef.current);
-        return () => {
-            document.body.removeChild(portalRef.current);
-        }
-    }, [])
-
-    return { props: {open, show}, ref: showRef, open: openModal, close: closeModal }
+    return { props: {open, show, closeModal, danger}, ref: showRef, open: openModal, close: closeModal }
 }
